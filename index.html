@@ -70,6 +70,12 @@ h4 {
     text-align: center;
 }
 
+strong {
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 .popup_box {
     visibility: hidden;
     display: none;
@@ -105,6 +111,7 @@ h4 {
     clear:both;
     background-color:white;
     color:#6E6E6E;
+    margin: 5px;
 }
 
 .popup_box .close_button {
@@ -120,6 +127,10 @@ h4 {
     margin-bottom:10px;
     border-radius:2px;
     cursor:pointer;
+}
+
+.img {
+
 }</style></head>
     <body>
         <!-- RULES: You may not look into the code unless hinted to do so or if it's absolutely needed. The only secrets/clues that you can find in code are comments. We recommend that you don't search the internet for answers, but if you are stuck, you may do so. You also may work with other people to solve this if you'd like. Also, please don't check our repositories for the other pages. -->
@@ -161,7 +172,11 @@ h4 {
         <div class="CaesarPop">
             <div class="popup_box">
                 <input type="button" class="cancel_button" value="X">
-                <p class="info_text">Felipe sent you a <a class="img" href="https://via.placeholder.com/150" target="blank">photo</a>.</p>
+                <div class="info_text">
+                <p>Felipe sent you a <strong>photo</strong></p>
+                    <div class="img">
+                    </div>
+                </div>
                 <input type="button" class="close_button" value="Close">
             </div>
         </div>
@@ -172,15 +187,17 @@ h4 {
 var caesarVal = 1 + Math.floor(Math.random() * 200);
 console.log(caesarVal);
 
-if (caesarVal === 60) {
-    $(".img").html("<a class='img' href='https://i.imgur.com/AfPxIPj.jpg' target='blank'>photo</a>");
-} else if (caesarVal === 28) {
-    $(".img").html("<a class='img' href='https://i.imgur.com/njqoEDU.jpg' target='blank'>photo</a>");
-} else if (caesarVal === 36) {
-    $(".img").html("<a class='img' href='https://i.imgur.com/CE9Y10Z.jpg' target='blank'>photo</a>");
-} else if (caesarVal === 100) {
-    $(".img").html("<a class='img' href='https://i.imgur.com/JfelP3Z.jpg' target='blank'>photo</a>");
-}
+$("strong").click(function() {
+    if (caesarVal === 60) {
+        $(".img").html("<img class='max' src='https://i.imgur.com/AfPxIPj.jpg'>");
+    } else if (caesarVal === 28) {
+        $(".img").html("<img class='max' src='https://i.imgur.com/njqoEDU.jpg'>");
+    } else if (caesarVal === 36) {
+        $(".img").html("<img class='max'src='https://i.imgur.com/CE9Y10Z.jpg'>");
+    } else if (caesarVal === 100) {
+        $(".img").html("<img class='max' src='https://i.imgur.com/JfelP3Z.jpg'>");
+    }
+});
 
 $(document).ready(function() {
     if ((caesarVal === 60) || (caesarVal === 28) || (caesarVal === 36) || (caesarVal === 100)) {
